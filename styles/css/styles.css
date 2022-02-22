@@ -1,0 +1,268 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  margin: 0;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.intro,
+.signup {
+  background-color: #1c2431;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar__logo {
+  width: 100px;
+}
+
+.navbar__links {
+  display: flex;
+  gap: 1.75em;
+}
+
+.navbar__links,
+.footer__links,
+.footer__social-medias {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__links a,
+.footer__links a,
+.footer__social-medias a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar__links,
+.header__title,
+.feature-box__title,
+.productive-section__title,
+.signup__title {
+  font-family: "Raleway", sans-serif;
+}
+
+.header {
+  background: url("../../images/bg-curvy-mobile.svg") no-repeat bottom;
+  text-align: center;
+}
+
+.header__title {
+  font-size: 1.75rem;
+}
+
+.header__title,
+.header__subtitle {
+  line-height: 1.5em;
+}
+
+.header__btn {
+  border: none;
+  border-radius: 100em;
+  background: linear-gradient(to right, #65e2d9, #339ecc);
+  color: white;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 1.1em 5em;
+}
+
+main {
+  background-color: #181f2a;
+}
+
+.feature-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1em;
+}
+
+.feature-box__image {
+  width: 60px;
+  margin-bottom: 1em;
+}
+
+.feature-box__title {
+  font-size: 1.25rem;
+}
+
+.feature-box__title,
+.feature-box__subtitle {
+  margin: 0;
+}
+
+.productive-section__title {
+  font-size: clamp(1.25rem, 1.25rem, 1.25rem);
+}
+
+.productive-section__link {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  text-decoration: none;
+  color: #65e2d9;
+  position: relative;
+}
+
+.productive-section__link::after {
+  content: '';
+  position: absolute;
+  background-color: #65e2d9;
+  width: 150px;
+  height: 1px;
+  bottom: -5px;
+}
+
+.testimonial-box {
+  background-color: #202a3c;
+  border-radius: 0.5em;
+  padding: 2em 1.5em 1.5em;
+}
+
+.testimonial-box__customer {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: end;
+  gap: 0 0.75em;
+}
+
+.testimonial-box__customer__image {
+  grid-row: span 2;
+  width: 30px;
+  border-radius: 100%;
+}
+
+.testimonial-box__customer__name,
+.testimonial-box__customer__position {
+  font-size: 0.8rem;
+}
+
+.testimonial-box__context {
+  margin: 0 0 1em 0;
+}
+
+.testimonial-box__customer__name {
+  font-weight: 700;
+}
+
+.signup {
+  text-align: center;
+  border-radius: 1em;
+  padding: 1.25em 2.25em 2.25em;
+}
+
+.signup__title {
+  font-size: 1.25rem;
+}
+
+.signup__form {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.signup__form__submit-btn {
+  border: none;
+  border-radius: 100em;
+  background: linear-gradient(to right, #65e2d9, #339ecc);
+  color: white;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  padding: 1em 1.5em;
+}
+
+.signup__form__email-input {
+  border: none;
+  border-radius: 100em;
+  padding: 1em 1.5em;
+}
+
+.signup__form__email-input::placeholder {
+  color: lightslategray;
+}
+
+.footer {
+  background-color: #0b1523;
+  display: grid;
+  gap: 1.25em;
+}
+
+.footer ul {
+  margin-top: 2.75em;
+}
+
+.footer__location,
+.footer__phone-number,
+.footer__email,
+.footer__social-medias {
+  display: flex;
+  align-items: center;
+}
+
+.footer__location img,
+.footer__phone-number img,
+.footer__email img,
+.footer__social-medias img {
+  width: 15px;
+}
+
+.footer__location img {
+  align-self: start;
+  margin-top: 5px;
+}
+
+.footer__location,
+.footer__phone-number,
+.footer__email {
+  gap: 1.5em;
+}
+
+.footer__links li + li {
+  margin-top: 1em;
+}
+
+.footer__social-medias {
+  margin: 0 auto;
+  gap: 1.5em;
+}
+
+.footer__social-medias li {
+  position: relative;
+}
+
+.footer__social-medias li::before {
+  content: '';
+  width: 25px;
+  height: 25px;
+  border: 1px solid white;
+  border-radius: 100%;
+  display: block;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+/*# sourceMappingURL=styles.css.map */
