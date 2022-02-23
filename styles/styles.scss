@@ -16,6 +16,8 @@ $white: hsl(0, 0%, 100%);
 $primary-font: 'Open Sans', sans-serif;
 $secondary-font: 'Raleway', sans-serif;
 
+$padding: 1.5em;
+
 //---===Mixins===---//
 
 @mixin list-reset {
@@ -46,16 +48,21 @@ $secondary-font: 'Raleway', sans-serif;
 //---===Styles===---//
 
 *,
-::before,
-::after { box-sizing: border-box; }
+*::before,
+*::after { box-sizing: border-box; }
 
 html { font-size: 14px; }
 
 body {
+  background-color: $main-color;
   font-family: $primary-font;
   color: $white;
+  display: grid;
+  grid-template-rows: repeat(6, auto);
+  align-items: center;
   margin: 0;
   min-height: 100vh;
+  line-height: 1.5em;
 }
 
 img {
@@ -70,12 +77,14 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: $padding;
 }
 
-.navbar__logo { width: 100px}
+.navbar__logo { width: 80px; }
 
 .navbar__links {
   display: flex;
+  font-size: 0.9rem;
   gap: 1.75em;
 }
 
@@ -87,25 +96,45 @@ img {
 .header__title,
 .feature-box__title,
 .productive-section__title,
-.signup__title {font-family: $secondary-font;}
+.signup__title { font-family: $secondary-font; }
 
 .header {
-  background: url('../../images/bg-curvy-mobile.svg') no-repeat bottom;
+  $bg-pic-height: 141px;
+  background:
+    url('../../images/bg-curvy-mobile.svg')
+    no-repeat center #{370px - $bg-pic-height},
+    linear-gradient(to bottom, $intro-signup-color 370px, $main-color 370px);
   text-align: center;
+  padding: 2.4em;
 }
 
-.header__title { font-size: 1.75rem }
+// @media (min-width: 500px) {
+//   .header {
+//     background: url('../../images/bg-curvy-desktop.svg') no-repeat center bottom;
+//     background-size: contain;
+//   }
+// }
 
-.header__title,
-.header__subtitle { line-height: 1.5em; }
+.header__title { font-size: 1.75rem; }
+.header__subtitle { padding: 0.25em; }
+.header__title { line-height: 1.5em; }
 
 .header__btn {
   @include btn();
   font-size: 1rem;
-  padding: 1.1em 5em;
+  width: 245px;
+  padding: 1.25em;
+  margin-top: 1em;
+  box-shadow: 0 0 10px -5px black;
 }
 
-main { background-color: $main-color; }
+.features {
+  margin-top: 5.5em;
+  padding: $padding;
+  display: flex;
+  flex-direction: column;
+  gap: 6em;
+}
 
 .feature-box {
   display: flex;
@@ -124,6 +153,11 @@ main { background-color: $main-color; }
 
 .feature-box__title,
 .feature-box__subtitle { margin: 0;}
+
+.productive-section {
+  padding: #{$padding + 0.5em};
+  margin-top: 6em;
+}
 
 .productive-section__title {
   font-size: clamp(1.25rem, 1.25rem, 1.25rem);
@@ -147,16 +181,43 @@ main { background-color: $main-color; }
   }
 }
 
+.testimonials {
+  // grid-row: 4 / 6;
+  // grid-column: 1;
+  display: grid;
+  gap: 1.5em;
+  padding: 6em #{$padding * 2};
+  padding-bottom: clamp(4em, 80%, 20em);
+}
+
 .testimonial-box {
   background-color: $testimonials-color;
-  border-radius: 0.5em;
-  padding: 2em 1.5em 1.5em;
+  border-radius: 0.25em;
+  padding: 1.75em 1.3em 1.5em ;
+  box-shadow: 0 0 15px -13px gray;
 }
+
+.testimonial-box:first-of-type {
+  position: relative;
+
+  &::before {
+    content: '';
+    background: url('../../images/bg-quotes.png') no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: -18px;
+    left: 6px;
+    z-index: -1;
+  }
+}
+
 
 .testimonial-box__customer {
   display: grid;
   grid-template-columns: auto 1fr;
-  align-items: end;
+  align-items: center;
   gap: 0 0.75em;
 }
 
@@ -166,19 +227,33 @@ main { background-color: $main-color; }
   border-radius: 100%;
 }
 
+.testimonial-box__customer__name { align-self: end; }
+.testimonial-box__customer__position { align-self: start; }
+
+.testimonial-box__context,
 .testimonial-box__customer__name,
 .testimonial-box__customer__position {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
-.testimonial-box__context { margin: 0 0 1em 0; }
+  .testimonial-box__context { 
+    margin: 0 0 1em 0;
+    font-size: 0.8rem;
+}
 
 .testimonial-box__customer__name { font-weight: 700; }
 
 .signup {
   text-align: center;
-  border-radius: 1em;
-  padding: 1.25em 2.25em 2.25em;
+  border-radius: 0.5em;
+  padding: 1.25em 2em 2.25em;
+  // grid-row: 5 / 7;
+  // grid-column: 1;
+  width: 90%;
+  z-index: 10;
+  margin: -50% auto -50%;
+  box-shadow: 5px 5px 15px -5px black;
+
 }
 
 .signup__title { font-size: 1.25rem; }
@@ -186,17 +261,19 @@ main { background-color: $main-color; }
 .signup__form {
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 1.75em;
+  margin-top: 2em;
 }
 
 .signup__form__submit-btn {
   @include btn();
-  padding: 1em 1.5em;
+  padding: 1.25em 1.5em;
 }
 
 .signup__form__email-input {
   @include input-reset();
-  padding: 1em 1.5em;
+  font-size: 0.8rem;
+  padding: 1.25rem 1.5rem;
  
   &::placeholder { color: lightslategray; }
 }
@@ -205,10 +282,20 @@ main { background-color: $main-color; }
   background-color: $footer-color;
   display: grid;
   gap: 1.25em;
+  // grid-row: 6 / -1;
+  // grid-column: 1;
+  padding: $padding;
+  padding-top: clamp(4em, 80%, 15em);
+
 
   ul { 
     margin-top: 2.75em;
   }
+}
+
+.footer__logo {
+  max-width: 150px; 
+  margin: 0.75em;
 }
 
 .footer__location,
@@ -240,7 +327,7 @@ main { background-color: $main-color; }
 
 .footer__social-medias {
   margin: 0 auto;
-  gap: 1.5em;
+  gap: 2em;
   
   li {
     position: relative;
@@ -248,8 +335,8 @@ main { background-color: $main-color; }
 
   li::before {
     content: '';
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     border: 1px solid $white;
     border-radius: 100%;
     display: block;
