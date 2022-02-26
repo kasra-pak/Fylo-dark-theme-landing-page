@@ -24,7 +24,7 @@
       </ul>
     </nav>
     <header class="header">
-      <div class="container">
+      <div class="header-container">
         <img class="header__image" src="./images/illustration-intro.png" alt="Two animated guys managing files in folder">
         <h1 class="header__title">All your files in one secure location, accessible anywhere.</h1>
         <p class="header__subtitle">
@@ -126,14 +126,7 @@
       questions, our support team would be happy to help you.
     </p>
     <form action="" class="signup__form">
-      <label style="border: 0;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px;" for="email">Email Address</label>
+      <label class="hidden-label" for="email">Email Address</label>
       <input class="signup__form__email-input" type="email" name="email" id="email-input" placeholder="email@example.com">
       <button class="signup__form__submit-btn" type="submit">Get Started For Free</button>
     </form>
@@ -142,16 +135,18 @@
     <img class="footer__logo" src="./images/logo.svg" alt="Fylo Logo">
     <div class="footer__location">
       <img src="./images/icon-location.svg" alt="Location Pin">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-      dolore magna aliqua
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+        dolore magna aliqua
+      </p>
     </div>
     <div class="footer__phone-number">
       <img src="./images/icon-phone.svg" alt="Ringing Phone">
-      +1-543-123-4567
+      <p>+1-543-123-4567</p>
     </div>
     <div class="footer__email">
       <img src="./images/icon-email.svg" alt="Mail">
-      example@fylo.com
+      <p>example@fylo.com</p>
     </div>
     <ul class="footer__links">
       <li><a href="#">About Us</a></li>
