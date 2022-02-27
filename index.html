@@ -4,10 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- GoogleFonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <!-- MyStyleSheet -->
   <link rel="stylesheet" href="./styles/css/styles.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <title>Fylo landing page</title>
@@ -128,6 +131,9 @@
     <form action="" class="signup__form">
       <label class="hidden-label" for="email">Email Address</label>
       <input class="signup__form__email-input" type="email" name="email" id="email-input" placeholder="email@example.com">
+      <span role="alert" class="signup__form__email-error" aria-hidden="true">
+        Please enter a valid email addresss
+      </span>
       <button class="signup__form__submit-btn" type="submit">Get Started For Free</button>
     </form>
   </section>

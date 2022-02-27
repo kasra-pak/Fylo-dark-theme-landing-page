@@ -65,9 +65,8 @@ body {
   margin: 0;
   min-height: 100vh;
 }
-p,h1,h2 {
-  line-height: 1.5em;
-}
+
+p,h1,h2 { line-height: 1.5em; }
 
 img {
   max-width: 100%;
@@ -92,8 +91,8 @@ img {
 .navbar__logo { width: clamp(80px, 15vw, 150px); }
 
 .navbar__links {
+  @include list-reset();
   display: flex;
-  font-size: .9rem;
   font-size: clamp(.9rem, 2vw, 1.1rem);
   gap: clamp(1.75rem, 4vw, 5rem);
 
@@ -102,10 +101,6 @@ img {
     font-weight: 700;
   }
 }
-
-.navbar__links,
-.footer__links,
-.footer__social-medias { @include list-reset() }
 
 .navbar__links,
 .header__title,
@@ -118,7 +113,6 @@ img {
   padding: 2.4em;
 }
 
-
 .header__title {
   font-size: clamp(1.75rem, 5vw, 2.5rem);
   line-height: 1.5em;
@@ -126,8 +120,8 @@ img {
 
 .header__subtitle {
   font-size: clamp(1rem, 3vw, 1.2rem);
-  padding: .25em;
   max-width: 500px;
+  padding: .25em;
   margin-left: auto;
   margin-right: auto;
 }
@@ -152,10 +146,10 @@ img {
 
 .feature-box {
   max-width: 355px;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   gap: 1em;
 }
 
@@ -188,9 +182,9 @@ img {
 }
 
 .productive-section__link {
-  gap: .5em;
   text-decoration: none;
   color: $cyan;
+  gap: .5em;
   position: relative;
 
   &::before {
@@ -223,8 +217,7 @@ img {
   justify-content: center;
   align-items: center;
   gap: 1.5em;
-  padding: 6em #{$padding + 2em};
-  padding-bottom: 23em;
+  padding: 6em $padding 23em;
   margin-top: 5em;
 }
 
@@ -265,37 +258,32 @@ img {
 }
 
 .testimonial-box__customer__image {
+  border-radius: 100%;
   grid-row: span 2;
   width: 30px;
-  border-radius: 100%;
 }
 
-.testimonial-box__customer__name { align-self: end; }
-.testimonial-box__customer__position { align-self: start; }
+.testimonial-box__customer__name { font-weight: 700; }
 
 .testimonial-box__customer__name,
 .testimonial-box__customer__position {
   font-size: clamp(.7rem, 2.5vw, .8rem);
 }
 
-.testimonial-box__customer__name { font-weight: 700; }
-
 .signup {
   background-color: $intro-signup-color;
-  align-self: center;
-  text-align: center;
   border-radius: .5em;
-  padding: 1.75em clamp(2em, 5vw, 5em) 2.75em;
-  width: 90%;
+  text-align: center;
+  align-self: center;
   max-width: 800px;
-  z-index: 10;
+  width: 90%;
   margin: -50% auto -50%;
+  padding: 1.75em clamp(2em, 5vw, 5em) 2.75em;
   box-shadow: 5px 5px 15px -7px black;
+  z-index: 10;
 }
 
-.signup__title {
-  font-size: clamp(1.25rem, 5vw, 2rem);
-}
+.signup__title { font-size: clamp(1.25rem, 5vw, 2rem); }
 
 .signup__subtitle {
   max-width: 680px;
@@ -307,23 +295,18 @@ img {
   flex-direction: column;
   gap: 1.75em;
   margin-top: 2em;
+  position: relative;
 }
 
 .hidden-label {
   position: absolute;
-  overflow: hidden;
-  background-color: white;
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
   margin: -1px;
   padding: 0;
   border: 0;
-}
-
-.signup__form__submit-btn {
-  @include btn();
-  padding: 1.25em 1.5em;
+  overflow: hidden;
 }
 
 .signup__form__email-input {
@@ -334,9 +317,24 @@ img {
   &::placeholder { color: lightslategray; }
 }
 
+.signup__form__email-error {
+  color: $light-Red;
+  font-size: .7rem;
+  text-align: left;
+  position: absolute;
+  top: 51px;
+  left: 35px;
+  opacity: 0;
+}
+
+.signup__form__submit-btn {
+  @include btn();
+  padding: 1.25em 1.5em;
+}
+
 .footer {
-  font-size: 1.15rem;
   background-color: $footer-color;
+  font-size: 1.15rem;
   display: grid;
   gap: 1.25em;
   padding: $padding;
@@ -347,7 +345,7 @@ img {
 
 .footer__logo {
   grid-column: 1 / -1;
-  max-width: 150px; 
+  max-width: 150px;
   margin: .75em;
 }
 
@@ -378,13 +376,16 @@ img {
   gap: 1.5em;
 }
 
-.footer__links li + li {
-  margin-top: 1em;
+.footer__links li + li { margin-top: 1em; }
+
+.footer__links {
+  @include list-reset();
+
+  a:hover { font-weight: 700; }
 }
 
-.footer__links a:hover { font-weight: 700; }
-
 .footer__social-medias {
+  @include list-reset();
   margin: 0 auto;
   gap: 2em;
   
@@ -396,15 +397,15 @@ img {
 
   li::before {
     content: '';
-    width: 30px;
-    height: 30px;
     border: 1px solid $white;
     border-radius: 100%;
     display: block;
+    width: 30px;
+    height: 30px;
     position: absolute;
-    transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
+    transform: translate(-50%, -50%);
     cursor: pointer;
   }
 
@@ -445,6 +446,7 @@ img {
     align-items: start;
     gap: 3em 2em;
     grid-template-columns: 3fr 1fr 1fr;
+    
     ul { margin: 0; }
   }
   
@@ -471,6 +473,8 @@ img {
   
   .signup__form__email-input { flex: 1 1 85%; }
   .signup__form__submit-btn { flex: 1 1 35%; }
+
+  .signup__form__email-error { top: 45px; }
 }
 
 @media (min-width: 1100px) {

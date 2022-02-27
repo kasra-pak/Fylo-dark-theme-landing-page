@@ -43,30 +43,22 @@ img {
 }
 
 .navbar__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  font-size: .9rem;
   font-size: clamp(0.9rem, 2vw, 1.1rem);
   gap: clamp(1.75rem, 4vw, 5rem);
+}
+
+.navbar__links a {
+  text-decoration: none;
+  color: white;
 }
 
 .navbar__links li:hover {
   text-decoration: underline;
   font-weight: 700;
-}
-
-.navbar__links,
-.footer__links,
-.footer__social-medias {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar__links a,
-.footer__links a,
-.footer__social-medias a {
-  text-decoration: none;
-  color: white;
 }
 
 .navbar__links,
@@ -89,8 +81,8 @@ img {
 
 .header__subtitle {
   font-size: clamp(1rem, 3vw, 1.2rem);
-  padding: .25em;
   max-width: 500px;
+  padding: .25em;
   margin-left: auto;
   margin-right: auto;
 }
@@ -125,10 +117,10 @@ img {
 
 .feature-box {
   max-width: 355px;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   gap: 1em;
 }
 
@@ -170,9 +162,9 @@ img {
 }
 
 .productive-section__link {
-  gap: .5em;
   text-decoration: none;
   color: #65e2d9;
+  gap: .5em;
   position: relative;
 }
 
@@ -211,8 +203,7 @@ img {
   justify-content: center;
   align-items: center;
   gap: 1.5em;
-  padding: 6em clamp(1.5em, 5vw, 5em)2em;
-  padding-bottom: 23em;
+  padding: 6em clamp(1.5em, 5vw, 5em) 23em;
   margin-top: 5em;
 }
 
@@ -253,17 +244,13 @@ img {
 }
 
 .testimonial-box__customer__image {
+  border-radius: 100%;
   grid-row: span 2;
   width: 30px;
-  border-radius: 100%;
 }
 
 .testimonial-box__customer__name {
-  align-self: end;
-}
-
-.testimonial-box__customer__position {
-  align-self: start;
+  font-weight: 700;
 }
 
 .testimonial-box__customer__name,
@@ -271,21 +258,17 @@ img {
   font-size: clamp(0.7rem, 2.5vw, 0.8rem);
 }
 
-.testimonial-box__customer__name {
-  font-weight: 700;
-}
-
 .signup {
   background-color: #1c2431;
-  align-self: center;
-  text-align: center;
   border-radius: .5em;
-  padding: 1.75em clamp(2em, 5vw, 5em) 2.75em;
-  width: 90%;
+  text-align: center;
+  align-self: center;
   max-width: 800px;
-  z-index: 10;
+  width: 90%;
   margin: -50% auto -50%;
+  padding: 1.75em clamp(2em, 5vw, 5em) 2.75em;
   box-shadow: 5px 5px 15px -7px black;
+  z-index: 10;
 }
 
 .signup__title {
@@ -302,18 +285,39 @@ img {
   flex-direction: column;
   gap: 1.75em;
   margin-top: 2em;
+  position: relative;
 }
 
 .hidden-label {
   position: absolute;
-  overflow: hidden;
-  background-color: white;
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
   margin: -1px;
   padding: 0;
   border: 0;
+  overflow: hidden;
+}
+
+.signup__form__email-input {
+  border: none;
+  border-radius: 100em;
+  font-size: .8rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.signup__form__email-input::placeholder {
+  color: lightslategray;
+}
+
+.signup__form__email-error {
+  color: #ff4242;
+  font-size: .7rem;
+  text-align: left;
+  position: absolute;
+  top: 51px;
+  left: 35px;
+  opacity: 0;
 }
 
 .signup__form__submit-btn {
@@ -331,20 +335,9 @@ img {
   background: #65e2d9;
 }
 
-.signup__form__email-input {
-  border: none;
-  border-radius: 100em;
-  font-size: .8rem;
-  padding: 1.25rem 1.5rem;
-}
-
-.signup__form__email-input::placeholder {
-  color: lightslategray;
-}
-
 .footer {
-  font-size: 1.15rem;
   background-color: #0b1523;
+  font-size: 1.15rem;
   display: grid;
   gap: 1.25em;
   padding: clamp(1.5em, 5vw, 5em);
@@ -402,13 +395,32 @@ img {
   margin-top: 1em;
 }
 
+.footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__links a {
+  text-decoration: none;
+  color: white;
+}
+
 .footer__links a:hover {
   font-weight: 700;
 }
 
 .footer__social-medias {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   margin: 0 auto;
   gap: 2em;
+}
+
+.footer__social-medias a {
+  text-decoration: none;
+  color: white;
 }
 
 .footer__social-medias li {
@@ -419,15 +431,15 @@ img {
 
 .footer__social-medias li::before {
   content: '';
-  width: 30px;
-  height: 30px;
   border: 1px solid white;
   border-radius: 100%;
   display: block;
+  width: 30px;
+  height: 30px;
   position: absolute;
-  transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
+  transform: translate(-50%, -50%);
   cursor: pointer;
 }
 
@@ -497,6 +509,9 @@ img {
   }
   .signup__form__submit-btn {
     flex: 1 1 35%;
+  }
+  .signup__form__email-error {
+    top: 45px;
   }
 }
 
